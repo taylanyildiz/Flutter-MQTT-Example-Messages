@@ -4,6 +4,14 @@ import 'package:flutter_mqtt_exam/services/mqtt_service.dart';
 import 'package:provider/provider.dart';
 
 class MessageScreen extends StatefulWidget {
+  final String? userName;
+  final String? passWord;
+
+  const MessageScreen({
+    Key? key,
+    this.userName,
+    this.passWord,
+  }) : super(key: key);
   @override
   _MessageScreenState createState() => _MessageScreenState();
 }
@@ -101,7 +109,8 @@ class _MessageScreenState extends State<MessageScreen> {
   Widget build(BuildContext context) {
     final MqtModel state = Provider.of<MqtModel>(context);
     _service = MqttService(state: state);
-    _service!.initializeMQTTClient('77.245.151.85', 'sensor/home');
+    _service!.initializeMQTTClient(
+        '77.245.151.85', 'sensor/home', widget.userName, widget.passWord);
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(

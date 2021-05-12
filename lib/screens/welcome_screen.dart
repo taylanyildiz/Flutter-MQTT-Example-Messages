@@ -53,8 +53,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       final username = _textControllers[0].text;
       final password = _textControllers[1].text;
       print('user name : $username\npassword: $password');
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (_) => MessageScreen(
+                    userName: username,
+                    passWord: password,
+                  )));
     }
-    Navigator.push(context, MaterialPageRoute(builder: (_) => MessageScreen()));
   }
 
   @override

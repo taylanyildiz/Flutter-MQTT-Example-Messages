@@ -6,23 +6,24 @@ import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 
 class MqttService {
-  MqttServerClient? _client;
+  late final MqttServerClient? _client;
 
-  MqtModel? state;
+  late final MqtModel? state;
 
   MqttService({this.state});
 
-  void initializeMQTTClient(String? host, String topic) {
+  void initializeMQTTClient(
+      String? host, String topic, String? userName, String? password) {
     _client = MqttServerClient('77.245.151.85', 'taylanyildz')
       ..secure = false
       ..port = 1883
-      ..keepAlivePeriod = 20
+      ..keepAlivePeriod = 60
       ..logging(on: false)
       ..onConnected = onConnected
       ..onDisconnected = onDisConnected
       ..onSubscribed = onSubscribed;
 
-    _connection();
+    _connection(userName!, password!);
   }
 
   void onConnected() async {
@@ -61,9 +62,9 @@ class MqttService {
     }
   }
 
-  void _connection() async {
+  void _connection(String userName, String password) async {
     try {
-      await _client!.connect();
+      await _client!.connect(userName, password);
     } on NoConnectionException catch (e) {
       log('error : ${e.toString()}');
     }
