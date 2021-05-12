@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+
+|              App Splash              |             App Home                 |
+| :----------------------------------: | :----------------------------------: | 
+| <a  target="_blank"><img src="ss1.png" width="200"></a> | <a  target="_blank"><img src="ss2.png" width="200"></a> |  
 ## Getting Started
 
 This project is a starting point for a Flutter application.

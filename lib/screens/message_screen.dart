@@ -95,7 +95,12 @@ class _MessageScreenState extends State<MessageScreen> {
             child: IconButton(
               icon: Icon(Icons.send),
               onPressed: () {
-                _service!.publish(_messageController!.text, 'sensor/home');
+                if (_messageController!.text.isNotEmpty) {
+                  _service!.publish(_messageController!.text, 'sensor/home');
+                  setState(() {
+                    _messageController!.clear();
+                  });
+                }
               },
               color: Colors.white,
             ),

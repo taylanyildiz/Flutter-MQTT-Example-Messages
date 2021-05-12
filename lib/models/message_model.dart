@@ -21,6 +21,8 @@ class MessageModel {
   }
 
   @override
-  // TODO: implement hashCode
-  int get hashCode => message.runtimeType.hashCode;
+  int get hashCode =>
+      message.runtimeType.hashCode ^
+      id.runtimeType.hashCode ^
+      time.runtimeType.hashCode;
 }
