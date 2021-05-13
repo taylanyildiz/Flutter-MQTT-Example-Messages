@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_mqtt_exam/models/message_model.dart';
 
-class MqtModel with ChangeNotifier {
-  var _message = <MessageModel>[];
+class MQTTModel with ChangeNotifier {
+  var _message = <Messages>[];
 
-  List<MessageModel> get message => _message;
+  List<Messages> get message => _message;
 
-  void addMessage(MessageModel message) {
+  void addMessage(Messages message) {
     _message.add(message);
     notifyListeners();
   }

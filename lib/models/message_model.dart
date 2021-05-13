@@ -1,28 +1,28 @@
 import 'package:flutter/cupertino.dart';
 
-class MessageModel {
-  MessageModel({
+class Messages {
+  Messages({
     this.id,
-    this.message,
+    this.msg,
     this.time,
   });
 
   final int? id;
-  final String? message;
+  final String? msg;
   final String? time;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) &&
-        (other is MessageModel) &&
-        other.message == message &&
+        (other is Messages) &&
+        other.msg == msg &&
         other.id == id &&
         other.time == time;
   }
 
   @override
   int get hashCode =>
-      message.runtimeType.hashCode ^
+      msg.runtimeType.hashCode ^
       id.runtimeType.hashCode ^
       time.runtimeType.hashCode;
 }
